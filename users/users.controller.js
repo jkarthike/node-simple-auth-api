@@ -5,7 +5,6 @@ const userService = require("./user.service");
 
 // routes
 router.post("/authenticate", authenticate);
-router.get("/", getAll);
 
 module.exports = router;
 
@@ -25,11 +24,4 @@ function authenticate(req, res, next) {
             )
             .catch((err) => next(err));
     });
-}
-
-function getAll(req, res, next) {
-    userService
-        .getAll()
-        .then((users) => res.json(users))
-        .catch((err) => next(err));
 }

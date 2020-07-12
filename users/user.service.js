@@ -17,8 +17,7 @@ const users = [
 ];
 
 module.exports = {
-    authenticate,
-    getAll,
+    authenticate
 };
 
 async function authenticate({ username, password }) {
@@ -29,11 +28,4 @@ async function authenticate({ username, password }) {
         const { password, ...userWithoutPassword } = user;
         return userWithoutPassword;
     }
-}
-
-async function getAll() {
-    return users.map((u) => {
-        const { password, ...userWithoutPassword } = u;
-        return userWithoutPassword;
-    });
 }
